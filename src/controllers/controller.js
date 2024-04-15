@@ -60,7 +60,6 @@ async function getTasks(req, res) {
         console.log(error);
         return res.status(500).json({ message: "Erro interno de servido." })
     }
-
 }
 
 async function createTask(req, res) {
@@ -73,14 +72,11 @@ async function createTask(req, res) {
             return res.status(400).json({ message: "Dados não encontrados." })
         }
         const updateTask = await User.findByIdAndUpdate({ _id: id }, { tasks: [...user.tasks, newTask] })
-
-        return res.status(200).json({ message: "Tarefa incluida com sucesso!" })
-
+        return res.status(200).json({ message: "Tarefa incluída com sucesso!" })
     } catch (error) {
         console.log(error)
         return res.status(500).json({ message: "Erro interno de servidor." })
     }
-
 }
 
 async function deleteTask(req, res) {
