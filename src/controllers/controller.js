@@ -1,6 +1,6 @@
-const { User } = require('../models/model')
-const { hashPassword, comparePassword } = require('../middlewares/bcrypt')
-const { createToken } = require('../middlewares/jwt')
+const { User } = require('../models/model.js')
+const { hashPassword, comparePassword } = require('../middlewares/bcrypt.js')
+const { createToken } = require('../middlewares/jwt.js')
 
 
 

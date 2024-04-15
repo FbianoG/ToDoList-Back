@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const control = require('../controllers/controller')
-const jwt = require('../middlewares/jwt')
+const control = require('../controllers/controller.js')
+const jwt = require('../middlewares/jwt.js')
 
 router.post("/createUser", control.createUser)
 router.post("/login", control.login)
