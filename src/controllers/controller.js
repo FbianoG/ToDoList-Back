@@ -28,24 +28,25 @@ async function createUser(req, res) {
 
 async function login(req, res) {
     const { email, password } = req.body
-    try {
-        if (!email || !password) {
-            return res.status(400).json({ message: "Preencha todos os campos." })
-        }
-        const user = await User.findOne({ email })
-        if (!user) {
-            return res.status(400).json({ message: "Email ou senha inválidos.", auth: false })
-        }
-        const hashedPassword = await comparePassword(password, user.password)
-        if (!hashedPassword) {
-            return res.status(400).json({ message: "Email ou senha inválidos.", auth: false })
-        }
-        const token = await createToken(user._id)
-        return res.status(200).json({ message: "Logado com sucesso!", auth: true, token })
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({ message: "Erro interno de servidor." })
-    }
+    return res.json({ message: "Tudo certo!" })
+    // try {
+    //     if (!email || !password) {
+    //         return res.status(400).json({ message: "Preencha todos os campos." })
+    //     }
+    //     const user = await User.findOne({ email })
+    //     if (!user) {
+    //         return res.status(400).json({ message: "Email ou senha inválidos.", auth: false })
+    //     }
+    //     const hashedPassword = await comparePassword(password, user.password)
+    //     if (!hashedPassword) {
+    //         return res.status(400).json({ message: "Email ou senha inválidos.", auth: false })
+    //     }
+    //     const token = await createToken(user._id)
+    //     return res.status(200).json({ message: "Logado com sucesso!", auth: true, token })
+    // } catch (error) {
+    //     console.log(error)
+    //     return res.status(500).json({ message: "Erro interno de servidor." })
+    // }
 }
 
 async function getTasks(req, res) {
