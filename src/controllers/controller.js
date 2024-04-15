@@ -34,11 +34,11 @@ async function login(req, res) {
         }
         const user = await User.findOne({ email })
         if (!user) {
-            return res.status(400).json({ message: "Email ou senha inválidos.", auth: false })
+            return res.status(401).json({ message: "Email ou senha inválidos.", auth: false })
         }
         const hashedPassword = await comparePassword(password, user.password)
         if (!hashedPassword) {
-            return res.status(400).json({ message: "Email ou senha inválidos.", auth: false })
+            return res.status(401).json({ message: "Email ou senha inválidos.", auth: false })
         }
         const token = await createToken(user._id)
         return res.status(200).json({ message: "Logado com sucesso!", auth: true, token })
