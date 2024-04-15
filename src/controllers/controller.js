@@ -5,7 +5,6 @@ const { createToken } = require('../middlewares/jwt.js')
 
 
 async function createUser(req, res) {
-
     try {
         let { email, password, name } = req.body
         if (!email || !password || !name) {
