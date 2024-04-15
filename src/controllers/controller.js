@@ -72,9 +72,9 @@ async function createTask(req, res) {
         if (!user) {
             return res.status(400).json({ message: "Dados não encontrados." })
         }
-        const updateTask = await User.findByIdAndUpdate({ _id: id }, { tasks: [...user.tasks, newTask] }, { new: true })
+        const updateTask = await User.findByIdAndUpdate({ _id: id }, { tasks: [...user.tasks, newTask] })
 
-        return res.status(200).json({ message: "Tarefa incluida com sucesso!", updateTask })
+        return res.status(200).json({ message: "Tarefa incluida com sucesso!" })
 
     } catch (error) {
         console.log(error)
