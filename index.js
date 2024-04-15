@@ -1,14 +1,14 @@
 const express = require('express')
 const router = require("./src/routes/router.js")
 const DataBase = require("./src/dataBase/db.js")
-
 const cors = require('cors')
 
 
-app.use(cors())
+
 
 const app = express()
 const port = 3000
+app.use(cors())
 
 
 
